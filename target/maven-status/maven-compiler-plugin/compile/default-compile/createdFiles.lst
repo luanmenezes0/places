@@ -1,0 +1,4 @@
+entidades\PontoTuristico.class
+bean\PontoTuristicoBean.class
+util\JPAUtil.class
+DAO\PontoTuristicoDAO.class

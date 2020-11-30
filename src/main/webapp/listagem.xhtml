@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<link rel="stylesheet"
+		href="https://cdn.rawgit.com/kimeiga/bahunya/css/bahunya-0.1.3.css" />
+	<title>Listagem</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:commandLink value="voltar" action="index.xhtml" />
+		<h:dataTable value="#{pontoTuristicoBean.lista}" var="p" border="1">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{p.id}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{p.nome}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Cidade</f:facet>
+				<h:outputText value="#{p.cidade}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Imagem</f:facet>
+				<img style="height: 50%;" src="#{p.foto}" alt="" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				<h:commandLink value="Editar" action="editar.xhtml">
+					<f:setPropertyActionListener value="#{p}"
+						target="#{pontoTuristicoBean.ponto}">
+					</f:setPropertyActionListener>
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+				<h:commandLink value="Excluir"
+					action="#{pontoTuristicoBean.excluir}">
+					<f:setPropertyActionListener value="#{p}"
+						target="#{pontoTuristicoBean.ponto}">
+					</f:setPropertyActionListener>
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>
